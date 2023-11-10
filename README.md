@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Hướng dẫn Cài đặt và Khởi tạo Ứng dụng React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Dưới đây là các bước để bắt đầu một ứng dụng React từ đầu.
 
-## Available Scripts
+## Bước 1: Cài đặt Node.js và npm
 
-In the project directory, you can run:
+React yêu cầu Node.js và npm để chạy. npm là trình quản lý gói của Node.js, cho phép bạn cài đặt các thư viện và công cụ khác.
 
-### `npm start`
+### Cài đặt Node.js
+- Ubuntu: https://azdigi.com/blog/en/linux-server-en/web-server/how-to-install-node-js-with-nvm-on-ubuntu-22-04/
+- Macos: https://tecadmin.net/install-nvm-macos-with-homebrew/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Kiểm tra cài đặt
+Mở terminal hoặc command prompt và chạy lệnh sau:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+node -v
+npm -v
+```
+### Tạo ứng dụng react mới
+   - npx create-react-app ''tên ứng dụng''
+   - cd my-react-app
+   - npm start
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Giới thiệu reactJS
+   ReactJS là gì: React là một thư viện JavaScript mã nguồn mở dùng để xây dựng giao diện người dùng, đặc biệt là cho các ứng dụng web đơn trang. Nó cho phép phát triển giao diện người dùng trong hình thức các components độc lập, có thể tái sử dụng, và quản lý trạng thái riêng của chúng.
+  - Các đặc điểm chính của State trong React:   
+     -  State được quản lý bởi React Component, thay vì bị control bởi DOM như truyền thống.
+     -  Khi State thay đổi, Component sẽ re-render lại UI một cách tự động.
+     - State là private cho mỗi Component, nó không thể truy cập hay thay đổi State của Component khác.
+     -  State có thể được khởi tạo ban đầu và cập nhật bằng phương thức setState().
+     -  Không nên thay đổi State trực tiếp, luôn phải dùng setState().
+     -  Các phương thức this.state và setState() chỉ có trong Component Class, không có trong Function Component.
+      State cùng với Props định nghĩa ra user interface của Component.
+  - Các đặc điểm chính của props trong React:
+    - Props (viết tắt của properties) trong React là các thuộc tính được truyền từ component cha sang component con.
+    - Props là read-only, nghĩa là không thể thay đổi giá trị của props từ component con.
+    - Props có thể được sử dụng để truyền dữ liệu giữa các component.
+    - Props chỉ được set ở component cha, được sử dụng ở component con.
