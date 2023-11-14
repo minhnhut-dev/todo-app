@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import TaskItem from './TaskItem';
-
-function ListTask({ tasks, onCompletedTask, onDeleteTask, onEditTask}) {  
+import { TodoContext } from '../context/todoContext';
+function ListTask({ onEditTask}) {  
+  const { state } = useContext(TodoContext);
   return (
     <>
-      {tasks.length > 0 ? tasks.map((task, index) => (
-        <TaskItem key={index} task={task} onCompletedTask={onCompletedTask} onDeleteTask={onDeleteTask} onEditTask={onEditTask}/>
+      {state.length > 0 ? state.map((task, index) => (
+        <TaskItem key={index} task={task} onEditTask={onEditTask}/>
       ))
         : <p className="lead text-center">No tasks found</p>}
     </>

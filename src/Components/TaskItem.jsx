@@ -2,9 +2,20 @@ import React from 'react';
 import { MDBCheckbox, MDBIcon,  MDBListGroup, MDBListGroupItem, MDBTooltip } from 'mdb-react-ui-kit';
 import moment from 'moment';
 import EditForm from './EditForm';
+import { TodoContext } from '../context/todoContext';
 
-function TaskItem({ task, onCompletedTask, onDeleteTask, onEditTask}) {
+function TaskItem({ task, onCompletedTask, onEditTask}) {
   const [editing, setEditing] = React.useState(false);
+  const { dispatch } = React.useContext(TodoContext);
+
+  const handleDeleteTask = (id) => {
+    dispatch({type: 'DELETE_TODO', payload: id});
+  }
+
+  const handleCompleteTask = (id) => {
+    dispatch({type: 'COMPLETED_TODO', payload: id});
+  }
+  
   return (
     <>
       <MDBListGroup horizontal className="rounded-0 bg-transparent">
@@ -16,7 +27,7 @@ function TaskItem({ task, onCompletedTask, onDeleteTask, onEditTask}) {
                 value={task.id}
                 id="flexCheckChecked"
                 checked={task.completed}
-                onChange={() => { onCompletedTask(task.id) }}
+                onChange={() => { handleCompleteTask(task.id) }}
                 disabled={task.completed}
               />
             </MDBListGroupItem>
@@ -46,7 +57,7 @@ function TaskItem({ task, onCompletedTask, onDeleteTask, onEditTask}) {
                   tag="a"
                   title="Delete todo"
                 >
-                  <MDBIcon fas icon="trash-alt" color="danger" onClick={() => onDeleteTask(task.id)} className='cursor-pointer'/>
+                  <MDBIcon fas icon="trash-alt" color="danger" onClick={() => handleDeleteTask(task.id)} className='cursor-pointer'/>
                 </MDBTooltip>
               </div>
               <div className="text-end text-muted">

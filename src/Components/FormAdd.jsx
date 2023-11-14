@@ -1,8 +1,11 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { MDBCard, MDBCardBody, MDBBtn } from 'mdb-react-ui-kit';
+import { TodoContext } from '../context/todoContext';
+import { generateId } from "../utils/generateID";
 
-function FormAdd({ onAddTask }) {
+function FormAdd() {
+  const {  dispatch } = useContext(TodoContext);
   const [titleTask, setTitleTask] = React.useState('');
 
   const handleTitleTaskChange = (e) => {
@@ -10,7 +13,12 @@ function FormAdd({ onAddTask }) {
     setTitleTask(value);
   }
   const handleAddTask = () => {
-    onAddTask(titleTask);
+      dispatch({type: 'ADD_TODO', payload: {
+      id: generateId(),
+      title: titleTask,
+      completed: false,
+      createdAt: Date.now(),  
+    }});
     setTitleTask('');
   }
 
